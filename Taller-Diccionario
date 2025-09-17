@@ -1,0 +1,396 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM3suGpEIfni4rP0iL91MXz",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DARD333/PROGCOM-B/blob/main/Taller-Diccionario\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "CQQnJAzfMlxK"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "10 Crea una función que reciba una lista de nombres y retorne cuántos nombres comienzan con vocal."
+      ],
+      "metadata": {
+        "id": "0Rl9EajLM1pD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def contar_vocales(nombres):\n",
+        "    vocales = \"a\",\"e\",\"i\",\"o\",\"u\",\"A\",\"E\",\"I\",\"O\",\"U\"\n",
+        "    contador = 0\n",
+        "    for k in nombres:\n",
+        "        if nombres[k][0] in vocales:\n",
+        "            contador += 1\n",
+        "    return contador\n",
+        "\n",
+        "print(contar_vocales({1: \"Daniel\", 2: \"Alis\", 3: \"Andrea\", 4: \"Elena\"}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qo5erNI3M4la",
+        "outputId": "87082b95-ab45-4961-ca1b-da4205deb6e7"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "11 Crea una función que reciba una lista y retorne otra lista sin elementos repetidos."
+      ],
+      "metadata": {
+        "id": "1sAJMED7NY8D"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def eliminar_repetidos(diccionario):\n",
+        "    nuevo = {}\n",
+        "    for k in diccionario:\n",
+        "        if diccionario[k] not in nuevo.values():\n",
+        "            nuevo[k] = diccionario[k]\n",
+        "    return nuevo\n",
+        "\n",
+        "print(eliminar_repetidos({1: \"Iron Man\", 2: \"Superman\", 3: \"Iron Man\"}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Awco2LNaNZza",
+        "outputId": "2a02e3f2-8604-4e03-a8f5-e436a7791789"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{1: 'Iron Man', 2: 'Superman'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "12 Crea una función que reciba una lista de números y retorne solo los que son primos."
+      ],
+      "metadata": {
+        "id": "RCd3qF76NwuK"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def es_primo(n):\n",
+        "    if n < 2:\n",
+        "        return False\n",
+        "    i = 2\n",
+        "    while i * i <= n:\n",
+        "        if n % i == 0:\n",
+        "            return False\n",
+        "        i += 1\n",
+        "    return True\n",
+        "\n",
+        "def filtrar_primos(diccionario):\n",
+        "    nuevo = {}\n",
+        "    for k in diccionario:\n",
+        "        if es_primo(diccionario[k]):\n",
+        "            nuevo[k] = diccionario[k]\n",
+        "    return nuevo\n",
+        "\n",
+        "print(filtrar_primos({1: 2, 2: 4, 3: 5, 4: 10, 5: 13}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SiFWRnZFNxTi",
+        "outputId": "2440c034-3fcb-4445-8bb1-487d0c2a3d80"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{1: 2, 3: 5, 5: 13}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "13 Crea una función que reciba un diccionario con claves 'nombre' y 'edad', y retorne un mensaje con esos datos."
+      ],
+      "metadata": {
+        "id": "UcHyxIpjOLEC"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def mensaje(diccionario):\n",
+        "    return \"Nombre: \" + diccionario[\"nombre\"] + \", Edad: \" + str(diccionario[\"edad\"])\n",
+        "\n",
+        "print(mensaje({\"nombre\": \"Bruce Wayne\", \"edad\": 33}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZRti0ndOOLvC",
+        "outputId": "847236c7-916b-4117-f136-63415865f6ff"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Nombre: Bruce Wayne, Edad: 33\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "14 Crea una función que reciba un diccionario de productos (clave: nombre, valor: precio) y retorne el total."
+      ],
+      "metadata": {
+        "id": "nGdoYawoOXTi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def total_productos(productos):\n",
+        "    total = 0\n",
+        "    for k in productos:\n",
+        "        total += productos[k]\n",
+        "    return total\n",
+        "\n",
+        "print(total_productos({\"Moto\": 1444, \"Cuerda\": 600, \"Pala\": 700}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1ykTJhoZOYEK",
+        "outputId": "cbd0fa84-9d3b-4af1-90f8-f0bd0c73ab3e"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2744\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "15 Crea una función que reciba un diccionario de estudiantes (clave: nombre, valor: nota) y retorne el promedio."
+      ],
+      "metadata": {
+        "id": "g3v0jUGJOo8x"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def promedio_notas(estudiantes):\n",
+        "    suma = 0\n",
+        "    for k in estudiantes:\n",
+        "        suma += estudiantes[k]\n",
+        "    return suma / len(estudiantes)\n",
+        "\n",
+        "print(promedio_notas({\"Harsol\": 4.5, \"Erick\": 3.8, \"Wendy\": 4.9}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Pagx06F-Opph",
+        "outputId": "bdf585af-26a5-48ae-fd15-2f81ee793128"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4.4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "16 Crea una función que reciba un diccionario y un nombre, y retorne la nota si existe o 'no encontrado'."
+      ],
+      "metadata": {
+        "id": "vDsmnjpHO5vy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def buscar_nota(estudiantes, nombre):\n",
+        "    if nombre in estudiantes:\n",
+        "        return estudiantes[nombre]\n",
+        "    else:\n",
+        "        return \"no encontrado\"\n",
+        "\n",
+        "print(buscar_nota({\"Harsol\": 4.5, \"Erick\": 3.8}, \"Wendy\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "I-NdncjNO6ai",
+        "outputId": "d293b973-0ebe-4e4b-e154-4d2e8d68b5c6"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "no encontrado\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "17 Crea una función que reciba un diccionario y retorne el nombre del estudiante con mayor nota."
+      ],
+      "metadata": {
+        "id": "f9fqcXg7PFwZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def mejor_nota(estudiantes):\n",
+        "    mayor = None\n",
+        "    nombre = \"\"\n",
+        "    for k in estudiantes:\n",
+        "        if mayor is None or estudiantes[k] > mayor:\n",
+        "            mayor = estudiantes[k]\n",
+        "            nombre = k\n",
+        "    return nombre\n",
+        "\n",
+        "print(mejor_nota({\"Harsol\": 4.5, \"Erick\": 3.8, \"Wendy\": 4.9}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "abYehyA6PRqR",
+        "outputId": "50aa0063-b225-4f5b-d39b-21fb52172bf1"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Wendy\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "18 Crea una función que reciba un diccionario de productos y retorne los productos con precios mayores a un valor dado."
+      ],
+      "metadata": {
+        "id": "VmNTMxrBPcp5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def productos_caros(productos, valor):\n",
+        "    nuevo = {}\n",
+        "    for k in productos:\n",
+        "        if productos[k] > valor:\n",
+        "            nuevo[k] = productos[k]\n",
+        "    return nuevo\n",
+        "print(productos_caros({\"Cerdo\": 2000, \"Carne\": 700, \"Tomate\": 300}, 400))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cv_XW2G2PdEc",
+        "outputId": "24f758dc-a2c1-4efc-d9e2-75ecc4f9d109"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'Cerdo': 2000, 'Carne': 700}\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
